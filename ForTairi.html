@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Tairii ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: radial-gradient(circle, #ffe6f0, #ff99cc);
+      font-family: 'Arial', sans-serif;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      color: red;
+      animation: float 6s infinite;
+      cursor: pointer;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-500px) scale(0.5);
+        opacity: 0;
+      }
+    }
+
+    .message {
+      position: absolute;
+      background: white;
+      padding: 8px 15px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      font-weight: bold;
+      font-size: 14px;
+      display: none;
+    }
+
+    .letter {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      text-align: center;
+      display: none;
+      font-size: 18px;
+      max-width: 80%;
+      line-height: 1.6;
+      z-index: 10;
+    }
+
+    .letter h2 {
+      margin: 0 0 10px;
+      color: #ff3399;
+    }
+
+    #showLetterBtn {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ff3399;
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      font-size: 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      display: none;
+      z-index: 5;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Música oculta */
+    #music {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Canvas para corazón -->
+<canvas id="heartCanvas"></canvas>
+
+<!-- Carta oculta -->
+<div class="letter" id="loveLetter">
+  <h2>Para: Tairii 💌</h2>
+  <p>
+    Esto fue hecho con Chatgpt peroo con todo mi amor para ti.<br><br>
+    Quería sorprenderte de una forma distinta, algo simple pero sincero.  
+    Gracias por hacer mis días más felices.  
+    Eres mi persona favorita.  
+    <br><br>
+    Te amo con todo mi corazón.  
+    <br><br>
+    — Tu noviecito 🧑‍💕
+  </p>
+</div>
+
+<!-- Botón para mostrar carta -->
+<button id="showLetterBtn">Tairii ❤️</button>
+
+<!-- Música de fondo -->
+<iframe
+  id="music"
+  width="0"
+  height="0"
+  src="https://www.youtube.com/embed/O2qJmZKqKzY?autoplay=1&loop=1&playlist=O2qJmZKqKzY"
+  frameborder="0"
+  allow="autoplay"
+></iframe>
+
+<script>
+  const phrases = ["Te amo", "I love you", "Hermosa", "Linda", "Tierna", "Dulce", "Bella"];
+  const canvas = document.getElementById("heartCanvas");
+  const ctx =
